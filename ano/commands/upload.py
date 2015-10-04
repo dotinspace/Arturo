@@ -42,7 +42,7 @@ class Upload(Command):
             self.e.find_arduino_tool('avrdude', ['hardware', 'tools', 'avr', 'bin'])
 
             conf_places = self.e.arduino_dist_places(['hardware', 'tools', 'avr', 'etc'])
-            conf_places.append('/etc/avrdude.conf') # fallback to system-wide conf on Fedora
+            conf_places.append('/etc') # fallback to system-wide conf on Raspbian (Wheezy)
             self.e.find_file('avrdude.conf', places=conf_places)
         else:
             self.e.find_arduino_tool('avrdude', ['hardware', 'tools', 'avr', 'bin'])
